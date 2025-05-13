@@ -1,0 +1,165 @@
+{
+  "nodes": [
+    {
+      "id": "start",
+      "type": "StartNode",
+      "config": {
+        "next_id": "set_var_0"
+      }
+    },
+    {
+      "id": "set_var_0",
+      "type": "SetVariable",
+      "config": {
+        "key": "status",
+        "value": "ok",
+        "next_id": "delay1"
+      }
+    },
+    {
+      "id": "delay1",
+      "type": "DelayNode",
+      "config": {
+          "delay_time": 2,
+          "next_id": "cond1"
+      }
+    },
+    {
+      "id": "cond1",
+      "type": "ConditionNode",
+      "config": {
+        "if": {
+          "condition": "context.get_var('status') == 'ok'",
+          "next_id": "success_node"
+        },
+        "else_if": [
+          {
+            "condition": "context.get_var('status') == 'retry'",
+            "next_id": "retry_node"
+          },
+          {
+            "condition": "context.get_var('status') == 'fail'",
+            "next_id": "fail_node"
+          }
+        ],
+        "else": {
+          "next_id": "default_node"
+        }
+      }
+    },
+    {
+      "id": "success_node",
+      "type": "LogNode",
+      "config": {
+        "message": "Success!",
+        "next_id": "log"
+      }
+    },
+    {
+      "id": "retry_node",
+      "type": "LogNode",
+      "config": {
+        "message": "Retrying...",
+        "next_id": "log"
+      }
+    },
+    {
+      "id": "fail_node",
+      "type": "LogNode",
+      "config": {
+        "message": "Failed!",
+        "next_id": "log"
+      }
+    },
+    {
+      "id": "default_node",
+      "type": "LogNode",
+      "config": {
+        "message": "Default case executed.",
+        "next_id": "log"
+      }
+    },
+    {
+      "id": "log",
+      "type": "LogNode",
+      "config": {
+        "message": "Flow Started!",
+        "next_id": "set_var_2"
+      }
+    },
+    {
+      "id": "set_var_2",
+      "type": "SetVariable",
+      "config": {
+        "key": "counter",
+        "value": "0",
+        "next_id": "set_var_1"
+      }
+    },
+    {
+      "id": "set_var_1",
+      "type": "SetVariable",
+      "config": {
+        "key": "status",
+        "value": "running",
+        "next_id": "fork1"
+      }
+    },
+    {
+      "id": "fork1",
+      "type": "ForkNode",
+      "config": {
+        "next_branches": ["branchA", "branchB"]
+      }
+    },
+    {
+      "id": "branchA",
+      "type": "LogNode",
+      "config": {
+        "message": "Branch A executing",
+        "next_id": "joinA"
+      }
+    },
+    {
+      "id": "branchB",
+      "type": "LogNode",
+      "config": {
+        "message": "Branch B executing",
+        "next_id": "joinB"
+      }
+    },
+    {
+      "id": "joinA",
+      "type": "SetVariable",
+      "config": {
+        "key": "doneA",
+        "value": true,
+        "next_id": "join1"
+      }
+    },
+    {
+      "id": "joinB",
+      "type": "SetVariable",
+      "config": {
+        "key": "doneB",
+        "value": true,
+        "next_id": "join1"
+      }
+    },
+    {
+      "id": "join1",
+      "type": "JoinNode",
+      "config": {
+        "wait_for": ["joinA", "joinB"],
+        "next_id": "logDone"
+      }
+    },
+    {
+      "id": "logDone",
+      "type": "LogNode",
+      "config": {
+        "message": "All branches done!"
+      }
+    }
+  ]
+}
