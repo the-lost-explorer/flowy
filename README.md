@@ -4,7 +4,9 @@
 
 Orchestrate complex async logic with branching, conditions, events, and seamless integration with external systems.
 
-![image](https://github.com/user-attachments/assets/5e646e25-9947-4e47-93b5-915ce93cb568)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/5e646e25-9947-4e47-93b5-915ce93cb568" width="300"/>
+</p>
 
 ---
 ## ✨ Features
