@@ -5,7 +5,7 @@
 Orchestrate complex async logic with branching, conditions, events, and seamless integration with systems like ROS and Modbus.
 
 ---
-## ✨ Features (planned)
+## ✨ Features
 
 * ✅ Flow-based JSON logic
 * ✅ Modular Node system (each node is its own class)
