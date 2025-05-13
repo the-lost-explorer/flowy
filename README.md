@@ -12,8 +12,8 @@ Orchestrate complex async logic with branching, conditions, events, and seamless
 * ✅ Event-driven execution
 * ✅ Parallelism via `Fork` and `Join` nodes
 * ✅ Built-in variable context for runtime data
-* ✅ Supports external triggers (ROS, HTTP, MQTT, Modbus, etc.)
-* ✅ Easy integration with ROS and robotics platforms
+* ✅ Supports external triggers (ROS, HTTP, MQTT, Modbus, etc.) (under development 🔧)
+* ✅ Easy integration with ROS and robotics platforms (under development 🔧)
 * ✅ CLI & API-ready runner (FastAPI-friendly)
 
 ---
