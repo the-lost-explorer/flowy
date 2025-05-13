@@ -2,7 +2,7 @@
 
 **A modular, dynamic, and event-driven flow-based engine**
 
-Orchestrate complex async logic with branching, conditions, events, and seamless integration with systems like ROS and Modbus.
+Orchestrate complex async logic with branching, conditions, events, and seamless integration with external systems.
 
 ---
 ## ✨ Features
